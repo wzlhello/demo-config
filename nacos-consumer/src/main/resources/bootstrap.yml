@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: myfirst-name
+        username: nacos
+        password: nacos
+        group: myService1  #分组要与provider保持一致,否则会找不到服务
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: myfirst-name
+        username: nacos
+        password: nacos
+        file-extension: yaml
+        group: TEST_GROUP_1
