@@ -1,0 +1,20 @@
+server:
+  port: 10090
+  servlet:
+    context-path: /monitor
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  security:
+#    enabled: false
+  endpoint:
+      health:
+        show-details: ALWAYS
+
+spring:
+  application:
+    name: boot-admin
+
+
