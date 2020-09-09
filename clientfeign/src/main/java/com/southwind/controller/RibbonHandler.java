@@ -9,12 +9,15 @@ import org.springframework.web.client.RestTemplate;
 
 import com.southwind.entity.Account;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author wzl
  * @since 2020-08-26 10:52
  */
 @RestController
 @RequestMapping("/ribbon")
+@Slf4j
 public class RibbonHandler {
 
     @Autowired
@@ -23,6 +26,7 @@ public class RibbonHandler {
     @GetMapping("/account/login/{username}/{password}/{type}")
     public Account login(@PathVariable("username") String username, @PathVariable("password") String password,
             @PathVariable("type") String type){
+        log.info("login:username:{},password:{},type:{}",username,password,type);
         return restTemplate.getForObject("http://account/login/{username}/{password}/{type}",Account.class,username,
                 password,type);
     }
